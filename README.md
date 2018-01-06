@@ -1,9 +1,9 @@
-# timeutil
-[![CircleCI](https://circleci.com/gh/azihsoyn/timeutil.svg?style=shield)](https://circleci.com/gh/azihsoyn/timeutil)
+# timex
+[![CircleCI](https://circleci.com/gh/azihsoyn/timex.svg?style=shield)](https://circleci.com/gh/azihsoyn/timex)
 
 golang time util library
 
-# Why? timeutil
+# Why? timex
 
 ## time comparison in go is complicated
 
@@ -17,11 +17,11 @@ if !now.Before(t1) && !t2.Before(now) { // ????
 return false
 ```
 
-in timeutil
+in timex
 
 ```go
 now := time.Now()
-if (timeutil.Time{now}).Between(t1, t2) {
+if (timex.Time{now}).Between(t1, t2) {
   return true
 }
 return false
@@ -33,8 +33,8 @@ return false
 time util can parse duration day and week
 
 ```
-timeutil.ParseDuration("1d") // time.Hour * 24
-timeutil.ParseDuration("1w") // time.Hour * 24 * 7
+timex.ParseDuration("1d") // time.Hour * 24
+timex.ParseDuration("1w") // time.Hour * 24 * 7
 ```
 
 # LICENSE
