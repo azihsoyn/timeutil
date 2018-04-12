@@ -43,7 +43,7 @@ return false
 
 ```
 t1 < t2
-``
+```
 
 go standard time
 ```go
@@ -90,7 +90,7 @@ return false
 
 ```
 t1 <= t2
-``
+```
 
 go standard time
 ```go
