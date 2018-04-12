@@ -1,16 +1,13 @@
 package timex
 
 import (
-	"fmt"
 	"testing"
-	"time"
-
 	"github.com/stretchr/testify/assert"
+	"time"
+	"fmt"
 )
 
-var loc = time.Local
-
-func Test_GreaterThan(t *testing.T) {
+func Test_TimexGreaterThan(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -35,12 +32,11 @@ func Test_GreaterThan(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).GreaterThan(test.other), fmt.Sprintf("No. %d", i+1))
-		assert.Equal(test.expect, (Time{test.t}).GT(test.other), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, A(test.t).GreaterThan().B(test.other), fmt.Sprintf("No. %d", i+1))
 	}
 }
 
-func Test_GreaterEqual(t *testing.T) {
+func Test_TimexGreaterEqual(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -65,12 +61,11 @@ func Test_GreaterEqual(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).GreaterEqual(test.other), fmt.Sprintf("No. %d", i+1))
-		assert.Equal(test.expect, (Time{test.t}).GE(test.other), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, A(test.t).GreaterEqual().B(test.other), fmt.Sprintf("No. %d", i+1))
 	}
 }
 
-func Test_LessThan(t *testing.T) {
+func Test_TimexLessThan(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -95,12 +90,11 @@ func Test_LessThan(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).LessThan(test.other), fmt.Sprintf("No. %d", i+1))
-		assert.Equal(test.expect, (Time{test.t}).LT(test.other), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, A(test.t).LessThan().B(test.other), fmt.Sprintf("No. %d", i+1))
 	}
 }
 
-func Test_LessEqual(t *testing.T) {
+func Test_TimexLessEqual(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -125,12 +119,12 @@ func Test_LessEqual(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).LessEqual(test.other), fmt.Sprintf("No. %d", i+1))
-		assert.Equal(test.expect, (Time{test.t}).LE(test.other), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, A(test.t).LessEqual().B(test.other), fmt.Sprintf("No. %d", i+1))
 	}
 }
 
-func Test_Equal(t *testing.T) {
+
+func Test_TimexEqual(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -150,12 +144,10 @@ func Test_Equal(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).Equal(test.other), fmt.Sprintf("No. %d", i+1))
-		assert.Equal(test.expect, (Time{test.t}).EQ(test.other), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, A(test.t).Equal().B(test.other), fmt.Sprintf("No. %d", i+1))
 	}
 }
-
-func Test_Between(t *testing.T) {
+func Test_TimexBetween(t *testing.T) {
 	assert := assert.New(t)
 	tests := []struct {
 		t      time.Time
@@ -196,6 +188,6 @@ func Test_Between(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		assert.Equal(test.expect, (Time{test.t}).Between(test.t1, test.t2), fmt.Sprintf("No. %d", i+1))
+		assert.Equal(test.expect, X(test.t).Between().Y(test.t1).And().Z(test.t2), fmt.Sprintf("No. %d", i+1))
 	}
 }

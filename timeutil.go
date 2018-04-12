@@ -1,6 +1,8 @@
 package timex
 
-import "time"
+import (
+	"time"
+)
 
 type Time struct {
 	time.Time
@@ -15,6 +17,8 @@ const (
 	LE          = "le"
 	EQ          = "eq"
 )
+
+
 
 func (t Time) GreaterThan(other time.Time) bool {
 	return t.GT(other)
